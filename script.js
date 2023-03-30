@@ -19,3 +19,4 @@ function calculateMinCost() {
   
   
 }  
+module.exports=calculateMinCost();
