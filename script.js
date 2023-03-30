@@ -1,22 +1,24 @@
 function calculateMinCost() {
-  //your code here
-  var res = 0;
-	var cost = 0;
-	var inputArray = document.getElementById("rope-lengths").value;
+  // Get the input element and the result element
+  const input = document.getElementById('ropes-input').value;
+  const result = document.getElementById('result');
 
-	inputArray = inputArray.split(',').map(Number);
-	console.log(inputArray);
-	for(let i = 0;i< inputArray.length -1;i+=0) {
-		if (inputArray.length == 0) break;
-		inputArray = inputArray.sort((a,b) => b-a);
-		res = inputArray.pop()+ inputArray.pop();
-		cost += res;
-		inputArray[inputArray.length] = res; 
-	}
+  // Convert the comma separated string of integers into an array of integers
+  const ropes = input.split(',').map(Number);
 
-	document.getElementById("result").innerHTML = cost;
-	}
-  
-  
-}  
-module.exports=calculateMinCost();
+  // Sort the ropes in ascending order
+  ropes.sort((a, b) => a - b);
+
+  // Initialize the total cost and the sum of ropes
+  let totalCost = 0;
+  let sumOfRopes = ropes[0];
+
+  // Calculate the minimum cost of ropes by summing the ropes and adding to total cost
+  for (let i = 1; i < ropes.length; i++) {
+    sumOfRopes += ropes[i];
+    totalCost += sumOfRopes;
+  }
+
+  // Display the minimum cost of ropes in the result element
+  result.innerHTML = `Minimum cost of ropes is: ${totalCost}`;
+}
