@@ -9,7 +9,7 @@ function calculateMinCost() {
 
 	inputArray = inputArray.split(',').map(Number);
 	console.log(inputArray);
-	for(let i = 0;i< inputArray.length -1;i+=0) {
+	for(let i = 0;i< inputArray.length -1;i++) {
 		if (inputArray.length == 0) break;
 		inputArray = inputArray.sort((a,b) => b-a);
 		res = inputArray.pop()+ inputArray.pop();
